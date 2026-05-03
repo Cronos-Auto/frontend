@@ -1,10 +1,10 @@
 import './style.css'
 import bgImg from '../../assets/BackGroundImage.png'
+import logoCronos from '../../assets/logoCronos.png'
 
 function LandingPage() {
 
     
-
     return(
         <body>
             <header>
@@ -14,16 +14,32 @@ function LandingPage() {
             </header>
 
             <section>
-                <div className='hero' style={{ backgroundImage: `url(${bgImg})`, height: '850px', backgroundSize: 'cover'}}>
+                <div className='hero' 
+                style={{
+                    backgroundImage: `url(${bgImg})`,
+                    height: '850px',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                    width: '100vw',
+                    minHeight: '100vh'
+                }}>
+                    
                     <div className='navBar'>
+
+                        <img className='LogoCronos' src={logoCronos}></img>
+
+                        <div className='ButtonSection'>
+
                         <button className='login'>
-                            login
+                            Login
                         </button>
                         <button className='cadastro'>
                             <p>
-                                cadastre-se
+                                Cadastre-se
                             </p>
                         </button>
+
+                        </div>
                     </div>
 
                     <p className='slogan'>
