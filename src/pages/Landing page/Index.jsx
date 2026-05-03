@@ -3,6 +3,7 @@ import bgImg from '../../assets/BackGroundImage.png'
 
 function LandingPage() {
 
+    
 
     return(
         <body>
