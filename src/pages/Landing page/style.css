@@ -1,0 +1,48 @@
+:root{
+    --LightGreen: #E5ffEa
+    --MidGreen: #50ff85
+    --Green: #5EE67E
+    --SemiDarkGreen: #53B668
+    --DarkGreen: #326A3D
+    --IntenseDarkGreen: #103F1A
+}
+
+body {
+    margin: 0%;
+}
+
+
+
+header {
+    height: 30px;
+
+    background-color: #010101;
+    
+    & p {
+      font-family: "IBM Plex Mono", monospace;
+      font-weight: 400;
+      font-style: normal;
+      font-size: larger;
+      color: #fff;
+    }
+}
+
+footer{
+    height: 60px;
+    background-color: black;
+
+    & p {
+        font-family: "IBM Plex Mono", monospace;
+        font-weight: 400;
+        font-style: normal;
+        font-size: larger;
+        color: #fff;
+    }
+}
+
+section{
+    width: 100%;
+    background-color: #fff;
+    color: #010101;
+
+}
