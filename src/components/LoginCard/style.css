@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,111.6,100..900;1,111.6,100..900&family=Comfortaa:wght@700&display=swap');
+:root{
+    --DarkGreen: #326A3D;
+    --IntenseDarkGreen: #103F1A;
+}
+.contentContainer{
+    color: black;
+    font-family: 'Comfortaa', 'Arial';
+    border-radius: 3%;
+    background-color: #ffffff;
+    height: 80vh;
+    width: 27vw;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 7.5vh;
+    text-align: left;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+.nameRow{
+    display: flex;
+    justify-content: space-between;
+    input{
+        width: 100%;
+    }
+}
+.inputBox{
+    display: flex;
+    flex-direction: column;
+    label{
+        color: #727272;
+        font-size: 0.7rem;
+        padding-bottom: 0.8vh;
+    }
+    input{
+        background-color: #fff;
+        border: 1px solid #ccc;
+        color: black;
+        padding: 1vh;
+        font-size: 0.9rem;
+        border-radius: 8px;
+        outline: none;
+        width: 100%;
+    }
+}
+.inputBox input:focus{
+    outline: none;
+    border-color: var(--IntenseDarkGreen);
+    box-shadow: 0 0 0 2px rgba(0, 102, 255, 0.1);
+}
+.inputComponent{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+.icons{
+    position: absolute;
+    right: 0.7vw;
+    color: #727272;
+    pointer-events: none;
+}
+.loginBtn{
+    height: 4vh;
+    border-radius: 25px;
+    border-style: none;
+    background-color: var(--DarkGreen);
+    transition: transform 30ms ease-in-out;
+}
+.loginBtn:hover{
+    transform: scale(1.01);
+    background-color: var(--IntenseDarkGreen);
+}
+.loginBtn:active{
+    transform: scale(0.95);
+    opacity: 0.8;
+}
