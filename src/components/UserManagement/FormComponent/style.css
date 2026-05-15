@@ -72,3 +72,12 @@
     transform: scale(0.95);
     opacity: 0.8;
 }
+@media (max-width: 1700px){
+    .form{
+        gap: 0vh;
+    }
+    .nameRow{
+        display: flex;
+        flex-direction: column;
+    }
+}

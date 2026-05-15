@@ -15,4 +15,14 @@
     flex-direction: column;
     gap: 7.5vh;
     text-align: left;
+    position: relative;
+}
+.header{
+    padding-top: 20%;
+}
+@media (max-width: 1700px){
+    .contentContainer{
+        height: 90vh;
+        width: 30vw;
+    }
 }
