@@ -1,6 +1,6 @@
 import BgImg from '../../assets/LoginBgImg.jpg'
 import logoCronos from '../../assets/logoCronos.png'
-import LoginCard from '../../components/LoginCard/Login'
+import LoginCard from '../../components/UserManagement/LoginCard/Login'
 import './style.css'
 function LoginPage(){
     return(

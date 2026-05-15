@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,111.6,100..900;1,111.6,100..900&family=Comfortaa:wght@700&display=swap');
+:root{
+    --DarkGreen: #326A3D;
+    --IntenseDarkGreen: #103F1A;
+}
+.contentContainer{
+    color: black;
+    font-family: 'Comfortaa', 'Arial';
+    border-radius: 3%;
+    background-color: #ffffff;
+    height: 80vh;
+    width: 27vw;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    gap: 7.5vh;
+    text-align: left;
+}
