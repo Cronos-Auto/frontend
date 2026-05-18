@@ -10,6 +10,10 @@ function LandingPage() {
     const registerNavigate = () => {
         navigate('/register');
     }
+
+    const loginNavigate = () => {
+        navigate('/login');
+    }
     return(
         <section>
             <header>
@@ -30,7 +34,7 @@ function LandingPage() {
                     <div className='navBar'>
                         <img className='LogoCronos' src={logoCronos}></img>
                         <div className='ButtonSection'>
-                        <button className='login' >
+                        <button className='login' onClick={loginNavigate}>
                             Login
                         </button>
                         <button className='cadastro' onClick={registerNavigate}>

@@ -9,7 +9,6 @@ function FormComponent(){
     return(
         <div id='container'>
             <div className="form">
-                <p style={{fontSize: '0.9rem'}}>Já possui uma conta? <a href='#'>Faça login</a></p>
                 <div className="nameRow">
                     <div className="inputBox">
                         <label htmlFor="inputFName">Primeiro nome</label>

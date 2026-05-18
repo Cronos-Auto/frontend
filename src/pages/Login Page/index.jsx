@@ -9,4 +9,4 @@ function LoginPage(){
         </section>
     )
 }
-export default RegisterPage;
+export default LoginPage;

@@ -4,6 +4,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import LandingPage from './pages/Landing page/Index'
 import RegisterPage from './pages/Register Page'
+import LoginPage from './pages/Login Page'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={ <LandingPage/> }/>
         <Route path='/register' element={ <RegisterPage/> }/>
+        <Route path='/login' element={ <LoginPage/> }/>
       </Routes>
     </BrowserRouter>
   </StrictMode>
