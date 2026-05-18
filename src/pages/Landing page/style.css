@@ -29,26 +29,30 @@ header {
 
     background-color: #010101;
     
-    & p {
-      font-family: "IBM Plex Mono", monospace;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 30px;
-      color: #fff;
-    }
+}
+
+header .tittle{
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  color: #fff;
 }
 
 footer{
-    height: 60px;
+    height: 320px;
     background-color: black;
 
-    & p {
-        font-family: "IBM Plex Mono", monospace;
-        font-weight: 400;
-        font-style: normal;
-        font-size: larger;
-        color: #fff;
-    }
+}
+
+footer .tittle{
+    margin-top: 5px;
+    margin-bottom: 40px;
+    font-family: "IBM Plex Mono", monospace;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #fff;
 }
 
 section{
@@ -179,3 +183,129 @@ section .hero::after{
     width: 290px;
     margin-left: 20px;
 }
+
+.slogan{
+    padding: 15px;
+    color: #fff;
+    font-family: "Comfortaa", sans-serif;
+    font-size: 40pt;
+    text-align: left;
+
+    & span{
+        color: var(--IntenseDarkGreen);
+    }
+}
+
+.slogandiv{
+    margin-top: 14%;
+    margin-left: 14%;
+}
+
+.mostrarMais{
+    margin-top: 20px;
+    height: 70px;
+    width: 250px;
+    border: none;
+    border-radius: 7px;
+    background-color: var(--IntenseDarkGreen);
+    color: #fff;
+
+    font-family: "Confortaa", sans-serif;
+    font-size: 22pt;
+    font-weight: 400;
+    transition: 0.5s;
+        margin-left: -56%;
+
+}
+& .mostrarMais:hover{
+    background-color: #1d6b2d;
+    transition: 0.5s;
+    
+
+}
+
+.descContainer{
+    margin-top: 60px;
+    margin-left: 80px;
+    text-align: left;
+    margin-bottom: 80px;
+}
+
+.desc{
+    font-size: 40pt;
+    margin-left: 40px;
+    margin-bottom: 30px;
+    font-weight: 600;
+    font-family: 'Archivo', sans-serif;
+    
+}
+
+.desc2 {
+    font-size: 24pt;
+    margin-left: 20px;
+    margin-bottom: 40px;
+    width: 900px;
+    font-family: 'Comfortaa', sans-serif;
+    letter-spacing: 2px;
+    line-height: 30px;
+
+}
+
+.subTittle{
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contactUs, .subTittle{
+    text-align: left;
+    margin-left: 40px;
+    font-family: '.ibm-plex-mono-regular', monospace;
+    font-size: 16pt;
+    color: #fff;
+    font-weight: 100;
+}
+
+.contactUs {
+    padding: 10px;
+}
+
+.contactUs li{
+    margin-left: 60px;
+    list-style: none;
+
+}
+
+.cardsContainer{
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 60px;
+
+}
+
+.iconCards{
+    width: 56px;
+    height: 46px;
+    margin-bottom: 20px;
+}
+
+.cardTitle{
+    font-size: 30pt;
+    font-family: 'Comfortaa', sans-serif;
+    font-style: Bold;
+
+}
+
+.cardSub{
+    font-family: 'Comfortaa', sans-serif;
+    font-size: 24pt;
+    font-style: Bold;
+    text-align: center;
+    line-height: 30px;
+
+}
+
+.iconTitle{
+    margin-bottom: 80px;
+}
+
