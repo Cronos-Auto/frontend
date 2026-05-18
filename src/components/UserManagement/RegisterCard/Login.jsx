@@ -1,7 +1,7 @@
 import './style.css'
 import logoCronos from '../../../assets/logoCronos.png'
 import FormComponent from '../FormComponent/formComp';
-function LoginCard(){
+function RegisterCard(){
     return(
         <div className="contentContainer">
             <img src={logoCronos} alt="Logo-Cronos" style={{height: '10%', width: '50%'}}/>
@@ -13,4 +13,4 @@ function LoginCard(){
         </div>
     )
 }
-export default LoginCard;
+export default RegisterCard;

@@ -1,8 +1,15 @@
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 import bgImg from '../../assets/BackGroundImage.png'
 import logoCronos from '../../assets/logoCronos.png'
 
+
 function LandingPage() {
+    const navigate = useNavigate();
+
+    const registerNavigate = () => {
+        navigate('/register');
+    }
     return(
         <section>
             <header>
@@ -23,10 +30,10 @@ function LandingPage() {
                     <div className='navBar'>
                         <img className='LogoCronos' src={logoCronos}></img>
                         <div className='ButtonSection'>
-                        <button className='login'>
+                        <button className='login' >
                             Login
                         </button>
-                        <button className='cadastro'>
+                        <button className='cadastro' onClick={registerNavigate}>
                             <p>
                                 Cadastre-se
                             </p>
