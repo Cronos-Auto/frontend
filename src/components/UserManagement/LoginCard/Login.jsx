@@ -1,9 +1,6 @@
 import './style.css'
 import logoCronos from '../../../assets/logoCronos.png'
 import FormComponent from '../FormComponent/formComp';
-import { FaIdCard } from 'react-icons/fa';
-import { MdEmail } from 'react-icons/md';
-import { BsEye, BsEyeFill } from 'react-icons/bs';
 function LoginCard(){
     return(
         <div className="contentContainer">

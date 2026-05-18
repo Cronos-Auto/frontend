@@ -58,6 +58,7 @@
     pointer-events: none;
 }
 .loginBtn{
+    color: #fff;
     height: 4vh;
     border-radius: 25px;
     border-style: none;
@@ -71,6 +72,10 @@
 .loginBtn:active{
     transform: scale(0.95);
     opacity: 0.8;
+}
+.passwordToggle{
+    pointer-events: all;
+    cursor: pointer;
 }
 @media (max-width: 1700px){
     .form{

@@ -2,7 +2,10 @@ import './style.css'
 import { FaIdCard } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { BsEye, BsEyeFill } from 'react-icons/bs';
+import { useState } from 'react';
 function FormComponent(){
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
     return(
         <div id='container'>
             <div className="form">
@@ -33,8 +36,18 @@ function FormComponent(){
                 <div className="inputBox">
                     <label htmlFor="passwordInput">Senha</label>
                     <div className="inputComponent">
-                        <input type="password" id='passwordInput' name='senha'/>
-                        <BsEyeFill className='icons'/>
+                        <input type={isPasswordVisible ? 'text' : 'password'} id='passwordInput' name='senha'/>
+                        {isPasswordVisible ? (
+                            <BsEye
+                            className='icons passwordToggle'
+                            onClick={() => setIsPasswordVisible(false)}
+                            />
+                        ) : (
+                            <BsEyeFill 
+                            className='icons passwordToggle'
+                            onClick={() => setIsPasswordVisible(true)}
+                            />
+                        )}
                     </div>
                 </div>
             </div>

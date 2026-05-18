@@ -17,9 +17,6 @@
     text-align: left;
     position: relative;
 }
-.header{
-    padding-top: 20%;
-}
 @media (max-width: 1700px){
     .contentContainer{
         height: 90vh;
