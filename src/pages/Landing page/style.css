@@ -233,7 +233,7 @@ section .hero::after{
     margin-bottom: 30px;
     font-weight: 600;
     font-family: 'Archivo', sans-serif;
-    
+    line-height: 60px;
 }
 
 .desc2 {
@@ -243,7 +243,7 @@ section .hero::after{
     width: 900px;
     font-family: 'Comfortaa', sans-serif;
     letter-spacing: 2px;
-    line-height: 30px;
+    line-height: 35px;
 
 }
 
@@ -282,13 +282,14 @@ section .hero::after{
     width: 56px;
     height: 46px;
     margin-bottom: 20px;
+    color: var(--IntenseDarkGreen);
 }
 
 .cardTitle{
     font-size: 30pt;
     font-family: 'Comfortaa', sans-serif;
     font-style: Bold;
-
+    line-height: 50px;
 }
 
 .cardSub{
