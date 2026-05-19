@@ -1,4 +1,5 @@
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 import bgImg from '../../assets/BackGroundImage.png'
 import logoCronos from '../../assets/logoCronos.png'
 import { FaLinkedin, FaPray } from 'react-icons/fa'
@@ -7,17 +8,24 @@ import { FaAddressCard } from 'react-icons/fa'
 import { FaList } from 'react-icons/fa'
 import { FaPrint } from 'react-icons/fa'
 
-function LandingPage() {
 
-    
+function LandingPage() {
+    const navigate = useNavigate();
+
+    const registerNavigate = () => {
+        navigate('/register');
+    }
+
+    const loginNavigate = () => {
+        navigate('/login');
+    }
     return(
-        <body>
+        <section>
             <header>
                 <p className='tittle'>
                     Conheça Cronos Auto
                 </p>
             </header>
-
             <section>
                 <div className='hero' 
                 style={{
@@ -28,22 +36,17 @@ function LandingPage() {
                     width: '100vw',
                     minHeight: '100vh'
                 }}>
-                    
                     <div className='navBar'>
-
                         <img className='LogoCronos' src={logoCronos}></img>
-
                         <div className='ButtonSection'>
-
-                        <button className='login'>
+                        <button className='login' onClick={loginNavigate}>
                             Login
                         </button>
-                        <button className='cadastro'>
+                        <button className='cadastro' onClick={registerNavigate}>
                             <p>
                                 Cadastre-se
                             </p>
                         </button>
-
                         </div>
                     </div>
                         <div className='slogandiv'>
@@ -108,7 +111,6 @@ function LandingPage() {
 
                 </div>
             </section>
-
             <footer>
                 <p className='tittle'>
                     Cronos Auto
@@ -129,8 +131,7 @@ function LandingPage() {
                     </ul>
                 </div>
             </footer>
-
-        </body>
+        </section>
     )
 }
 
