@@ -6,7 +6,6 @@
     --DarkGreen: #326A3D;
     --IntenseDarkGreen: #103F1A;
 }
-
 * {
     box-sizing: border-box;
     margin: 0;
@@ -18,8 +17,7 @@ html,body, #root {
     min-height: 100vh;
     margin: 0%;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    overflow-y: auto;
 }
 
 
@@ -56,24 +54,22 @@ footer .tittle{
 }
 
 section{
-    width: 100vw;
+    width: 100%;
     background-color: #fff;
     color: #010101;
-    flex: 1;
     margin: 0;
     padding: 0;
 }
 
 section .hero{
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding-top: 10px;
     position: relative;
-
-    
+    overflow: hidden;    
 }
 
 /*gradiente verde no lado esquerdo*/
@@ -278,9 +274,8 @@ section .hero::after{
 .cardsContainer{
     display: flex;
     flex-direction: row;
-    margin-top: 50px;
-    margin-bottom: 60px;
-
+    justify-content: space-between;
+    margin: 50px 50px 60px 50px;
 }
 
 .iconCards{
