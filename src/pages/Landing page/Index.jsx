@@ -49,20 +49,19 @@ function LandingPage() {
                         </button>
                         </div>
                     </div>
-                        <div className='slogandiv'>
+                    <div className='slogandiv'>
                         <p className='slogan'>
                             Conheça a <span>NOVA</span> Forma de
                         </p>
                         <p className='slogan'>
                             <span>AUTOMATIZAR</span> Processos
                         </p>
-                    </div>
-
-                    <div className='buttonSlogan'>
-                        <button className='mostrarMais'>
-                            Quero conhecer
-                        </button>
-                    </div>
+                        <div className='buttonSlogan'>
+                            <button className='mostrarMais'>
+                                Quero conhecer
+                            </button>
+                        </div>
+                    </div>   
                 </div>
 
                 <div className='descContainer'>
@@ -121,13 +120,13 @@ function LandingPage() {
                 <div className='contactUs'>
                     <p><FaLinkedin></FaLinkedin> Linkedin</p>
                     <ul>
-                        <li>Diogo André</li>
-                        <li>Gabriel Domingues</li>
+                        <li><a href="https://www.linkedin.com/in/diogoamss/" className='links'>Diogo André</a></li>
+                        <li><a href="https://www.linkedin.com/in/gabriel-domingues-b72236323/" className='links'>Gabriel Domingues</a></li>
                     </ul>
                     <p><FaGithub></FaGithub> GitHub</p>
                     <ul>
-                        <li>Diogoamss</li>
-                        <li>GabrielDominguesSantos</li>
+                        <li><a href='https://github.com/Diogoamss' className='links'>Diogoamss</a></li>
+                        <li><a href="https://github.com/GabrielDominguesSantos" className='links'>GabrielDominguesSantos</a></li>
                     </ul>
                 </div>
             </footer>
