@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,111.6,100..900;1,111.6,100..900&family=Comfortaa:wght@700&display=swap');
+:root{
+    --LightGreen: #E5ffEa;
+    --MidGreen: #50ff85;
+    --Green: #5EE67E;
+    --SemiDarkGreen: #53B668;
+    --DarkGreen: #326A3D;
+    --IntenseDarkGreen: #103F1A;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,body, #root {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0%;
+    padding: 0;
+    overflow-y: auto;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+}
+
+.sideBar {
+    margin-left: 2vw;
+    width: 17vw;
+    min-height: 100vh;
+    padding: 5vh 0vh;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 4px 0 10px -4px rgba(0, 0, 0, 0.3);
+}
+
+.logoCronos {
+    margin-bottom: 10vh;
+}
+
+.icons{
+    position: static;
+    color: var(--IntenseDarkGreen);
+    font-size: 1.5rem;
+}
+
+.linkComponent {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.configComponent {
+    margin-top: auto;
+}
