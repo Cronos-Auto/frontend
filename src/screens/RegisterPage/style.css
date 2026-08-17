@@ -1,0 +1,28 @@
+.authPage {
+    --IntenseDarkGreen: #103f1a;
+    min-height: 100svh;
+}
+
+.authPage,
+.authPage * {
+    box-sizing: border-box;
+}
+
+.authPage .authScreen {
+    width: 100%;
+    min-height: 100svh;
+    background-image: url(../../assets/LoginBgImg.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 32px 10%;
+}
+
+@media (max-width: 800px) {
+    .authPage .authScreen {
+        justify-content: center;
+        padding: 24px;
+    }
+}

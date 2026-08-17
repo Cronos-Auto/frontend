@@ -1,15 +1,16 @@
-import './style.css'
+import './styles.css'
 
 import { FaAddressCard } from 'react-icons/fa'
 import { FaList } from 'react-icons/fa'
 import { FaPrint } from 'react-icons/fa'
 
 import logoCronos from '../../assets/logoCronos.png'
+import Image from 'next/image'
 
 function MainPage(){
 
     return(
-        <body>
+        <main>
             <header>
                 <p className='tittle'>
                     Cronos Auto
@@ -18,7 +19,7 @@ function MainPage(){
 
             <section>
                 <aside>
-                    <img className='logoCronos' src={logoCronos}></img>
+                    <Image className='logoCronos' src={logoCronos} alt='Cronos Auto' />
 
                     <FaAddressCard></FaAddressCard>
                     <FaList></FaList>
@@ -39,7 +40,7 @@ function MainPage(){
 
                 </div>
             </section>
-        </body>
+        </main>
     )
 }
 

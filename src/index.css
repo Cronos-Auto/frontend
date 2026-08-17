@@ -23,6 +23,14 @@
   }
 }
 
+:root {
+  --text: #4b5563;
+  --text-h: #111827;
+  --bg: #ffffff;
+  --border: #e5e7eb;
+  --code-bg: #f3f4f6;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text: #9ca3af;
@@ -45,17 +53,12 @@
 
 body {
   margin: 0;
+  min-height: 100svh;
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
+#app-root {
+  width: 100%;
   min-height: 100svh;
-  display: flex;
-  flex-direction: column;
   box-sizing: border-box;
 }
 

@@ -2,11 +2,11 @@ import RegisterCard from '../../components/UserManagement/RegisterCard/Register'
 import './style.css'
 function RegisterPage(){
     return(
-        <section>
-            <div id='screenContainer'>
+        <main className='authPage'>
+            <div className='authScreen'>
                 <RegisterCard />
             </div>
-        </section>
+        </main>
     )
 }
 export default RegisterPage;

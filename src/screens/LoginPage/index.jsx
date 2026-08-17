@@ -2,11 +2,11 @@ import LoginCard from '../../components/UserManagement/LoginCard/Login'
 import './style.css'
 function LoginPage(){
     return(
-        <section>
-            <div id='screenContainer'>
+        <main className='authPage'>
+            <div className='authScreen'>
                 <LoginCard />
             </div>
-        </section>
+        </main>
     )
 }
 export default LoginPage;

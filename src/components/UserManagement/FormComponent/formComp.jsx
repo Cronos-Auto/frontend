@@ -1,8 +1,12 @@
+'use client'
+
 import './style.css'
 import { FaIdCard } from 'react-icons/fa';
 import { MdEmail } from 'react-icons/md';
 import { BsEye, BsEyeFill } from 'react-icons/bs';
 import { useState } from 'react';
+import Link from 'next/link';
+
 function FormComponent(){
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -50,7 +54,7 @@ function FormComponent(){
                     </div>
                 </div>
             </div>
-            <button className='loginBtn'>Criar conta</button>
+            <Link href='/main' className='loginBtn'>Criar conta</Link>
         </div>
     )
 }
