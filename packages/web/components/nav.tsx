@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import { basePath } from "../lib/base-path";
 
 const links = [
   { href: "#problema", label: "O problema" },
@@ -31,7 +32,7 @@ export function Nav() {
       <div className="mx-auto flex h-18 max-w-[1200px] items-center justify-between px-6 lg:px-10">
         <a href="#top" className="flex items-center gap-2.5">
           <img
-            src="/images/cronos-mark.png"
+            src={`${basePath}/images/cronos-mark.png`}
             alt="Cronos Auto"
             className="h-8 w-auto object-contain"
           />

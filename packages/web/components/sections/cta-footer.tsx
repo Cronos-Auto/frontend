@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail } from "lucide-react";
 import { Reveal } from "../reveal";
+import { basePath } from "../../lib/base-path";
 
 export function CtaFooter() {
   const year = new Date().getFullYear();
@@ -47,7 +48,7 @@ export function CtaFooter() {
         <div className="mt-20 flex flex-col items-center gap-6 border-t border-white/10 pt-8 sm:flex-row sm:justify-between">
           <div className="flex items-center gap-2.5">
             <img
-              src="/images/cronos-mark-light.png"
+              src={`${basePath}/images/cronos-mark-light.png`}
               alt="Cronos Auto"
               className="h-7 w-auto object-contain"
             />

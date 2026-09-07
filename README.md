@@ -94,6 +94,30 @@ Na API (Express), use `process.env.SUA_VAR`. No app web (Next.js), só variávei
 > A landing page em si (`packages/web`) não usa nada disso — nenhuma seção consulta a API ou
 > o banco. Essas variáveis só importam quando funcionalidades reais forem implementadas.
 
+## Deploy no GitHub Pages
+
+A landing page (`packages/web`) pode ser publicada como site estático no GitHub Pages —
+GitHub Pages não roda Node.js, então isso serve **só a página**, sem a API/banco.
+
+**Configuração única no repositório:**
+1. Settings → Pages → em "Build and deployment", escolha **Source: GitHub Actions**.
+
+Depois disso, todo push na branch `main` roda `.github/workflows/deploy-pages.yml`, que builda
+`packages/web` em modo estático (`output: "export"`) e publica em
+`https://<seu-usuario>.github.io/<nome-do-repo>/`.
+
+Pra testar o build estático localmente antes de dar push:
+```
+cd packages/web
+pnpm run build:gh-pages
+```
+Isso gera a pasta `packages/web/out/` — pode abrir num servidor estático local
+(ex: `npx serve out`) pra conferir.
+
+> Como o site de projeto do GitHub Pages fica em `/<repo>/` (não na raiz do domínio), o build
+> usa `basePath`/`assetPrefix` com o nome do repositório — isso já é calculado automaticamente
+> pelo workflow. Não precisa configurar nada manualmente, a não ser se você renomear o repositório.
+
 ## Banco de dados
 
 ```
