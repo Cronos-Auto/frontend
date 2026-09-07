@@ -39,7 +39,7 @@ jobs:
           # A user/org root site (repo named "<user>.github.io") is served
           # from the domain root; a normal project repo is served from
           # /<repo-name>/, so basePath needs the repo name as a prefix.
-          NEXT_PUBLIC_BASE_PATH: ${{ endsWith(github.event.repository.name, '.github.io') && '' || format('/{0}', github.event.repository.name) }}
+          NEXT_PUBLIC_BASE_PATH: ""
         run: pnpm run build
 
       - uses: actions/configure-pages@v5
