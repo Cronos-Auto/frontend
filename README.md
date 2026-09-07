@@ -14,7 +14,7 @@ Monorepo: pnpm workspaces + Turborepo.
 
 Os scripts do `package.json` da raiz são o contrato externo — deploy e ferramentas só chamam
 esses comandos nomeados. Nunca renomeie ou remova; o que roda por trás pode mudar livremente.
-
+ 
 | Comando                                          | Finalidade                                                      |
 | ------------------------------------------------- | ----------------------------------------------------------------|
 | `pnpm install`                                    | Instala as dependências de todos os pacotes do monorepo          |
