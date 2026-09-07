@@ -1,0 +1,23 @@
+// Prisma schema — API layer's data models.
+// Provider: PostgreSQL via Neon (serverless Postgres).
+// Workflow: `bun run db:push` (dev) or `db:generate` + `db:migrate` (prod),
+// run from packages/api.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  // Neon: use a pooled connection string for DATABASE_URL (pgbouncer),
+  // and set DIRECT_URL to Neon's unpooled connection string for migrations.
+  directUrl = env("DIRECT_URL")
+}
+
+// Define your models here, e.g.:
+// model User {
+//   id        String   @id @default(cuid())
+//   email     String   @unique
+//   createdAt DateTime @default(now())
+// }

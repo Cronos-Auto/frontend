@@ -1,0 +1,87 @@
+{
+  "$schema": "node_modules/konsistent/konsistent.schema.json",
+  "version": "v1",
+  "conventions": [
+    {
+      "name": "api-route-files-export-a-router",
+      "paths": "packages/api/src/routes/{feature}.ts",
+      "must": {
+        "exportConstants": [
+          "${feature.toCamelCase()}Router"
+        ]
+      }
+    },
+    {
+      "name": "all-env-vars-must-live-in-the-single-root-env-file",
+      "paths": [
+        ".env.local",
+        ".env.development",
+        ".env.production",
+        ".env.test",
+        ".env.*.local",
+        "packages/web/.env.local",
+        "packages/web/.env.development",
+        "packages/web/.env.production",
+        "packages/web/.env.test",
+        "packages/web/.env.*.local",
+        "packages/api/.env.local",
+        "packages/api/.env.development",
+        "packages/api/.env.production",
+        "packages/api/.env.test",
+        "packages/api/.env.*.local"
+      ],
+      "mustNot": {
+        "haveType": "file"
+      }
+    },
+    {
+      "name": "web-static-assets-must-live-in-packages-web-public",
+      "paths": [
+        "packages/web/app/**/*.{png,jpg,jpeg,gif,webp,avif,svg,ico,mp4,webm,mov,mp3,wav,ogg,woff,woff2,ttf,otf,eot}",
+        "packages/web/components/**/*.{png,jpg,jpeg,gif,webp,avif,svg,ico,mp4,webm,mov,mp3,wav,ogg,woff,woff2,ttf,otf,eot}"
+      ],
+      "mustNot": {
+        "haveType": "file"
+      }
+    },
+    {
+      "name": "template-managed-files-exist-mobile",
+      "paths": "packages/mobile",
+      "must": {
+        "haveType": "directory",
+        "haveFiles": [
+          "lib/__analytics.ts",
+          "__env.d.ts"
+        ]
+      }
+    },
+    {
+      "name": "mobile-layout-keeps-template-providers",
+      "paths": "packages/mobile/app/_layout.tsx",
+      "must": {
+        "importFrom": [
+          "../lib/__analytics",
+          "../components/ErrorBoundary"
+        ]
+      }
+    },
+    {
+      "name": "web-provider-wires-react-query",
+      "paths": "packages/web/components/provider.tsx",
+      "must": {
+        "importFrom": [
+          "@tanstack/react-query"
+        ]
+      }
+    },
+    {
+      "name": "web-query-files-build-on-api-client",
+      "paths": "packages/web/queries/{feature}.ts",
+      "must": {
+        "importFrom": [
+          "../lib/api"
+        ]
+      }
+    }
+  ]
+}

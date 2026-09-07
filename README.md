@@ -1,18 +1,113 @@
-# React + Vite
+# Cronos Auto — sandbox-app-template
 
-a
+Monorepo: pnpm workspaces + Turborepo.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Stack
 
-Currently, two official plugins are available:
+| Camada  | Tecnologia                                              |
+| ------- | -------------------------------------------------------- |
+| API     | Express + Prisma + PostgreSQL (Neon)                      |
+| Web     | Next.js (App Router) + Tailwind CSS v4 + TanStack Query   |
+| Mobile  | Expo + React Native (expo-router)                          |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Comandos
 
-## React Compiler
+Os scripts do `package.json` da raiz são o contrato externo — deploy e ferramentas só chamam
+esses comandos nomeados. Nunca renomeie ou remova; o que roda por trás pode mudar livremente.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Comando                                          | Finalidade                                                      |
+| ------------------------------------------------- | ----------------------------------------------------------------|
+| `pnpm install`                                    | Instala as dependências de todos os pacotes do monorepo          |
+| `pnpm run dev`                                    | Sobe web (Next.js) + api (Express) em modo dev                   |
+| `pnpm run dev:mobile`                             | Sobe o dev server do Expo                                        |
+| `pnpm run build`                                  | Builda todos os pacotes                                          |
+| `pnpm run start`                                  | Sobe (ou reinicia) web + api via pm2 (idempotente)                |
+| `pnpm run stop`                                   | Para web + api                                                    |
+| `pnpm run lint`                                   | Convenções + oxlint                                               |
+| `pnpm run typecheck`                              | Checa tipos em todos os pacotes                                   |
+| `pnpm run db:generate` / `db:migrate` / `db:push` | Workflows do Prisma (packages/api)                                 |
 
-## Expanding the ESLint configuration
+> **Se o `pnpm run dev` (via Turborepo) falhar no Windows** sem mensagem de erro clara, rode a
+> API e o Web em dois terminais separados como alternativa:
+> ```
+> # terminal 1
+> cd packages\api && pnpm run dev
+> # terminal 2
+> cd packages\web && pnpm run dev
+> ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Convenções fixas que o contrato depende: o app web escuta em `$PORT` (padrão `4200`) e faz
+proxy de `/api/*` para a API Express, que escuta internamente em `$API_PORT` (padrão `4201`).
+Health check em `/api/health`. Segredos no `.env` da raiz. Nomes dos apps no pm2: `web-app`, `api`.
+
+## Estrutura do projeto
+
+```
+.env                         Segredos (gitignored)
+pnpm-workspace.yaml           Declaração dos workspaces (packages/*)
+packages/
+  api/                       API Express (servidor HTTP standalone)
+    src/
+      index.ts               App Express + listen — CORS, /api/health, monta as rotas
+      routes/                Rotas por feature, um arquivo por feature
+      db.ts                  Singleton do Prisma Client
+    prisma/
+      schema.prisma          Schema do Prisma (PostgreSQL via Neon)
+  web/                       App Next.js (App Router)
+    next.config.ts           Faz proxy de /api/* para packages/api em dev e produção
+    scripts/
+      run-next.mjs            Wrapper cross-platform pra porta do next dev/start
+    app/
+      layout.tsx             Layout raiz (Provider, estilos globais)
+      page.tsx                Landing page (compõe os componentes de seção)
+      globals.css             Entry do Tailwind
+    components/               Componentes de UI + seções
+    lib/
+      api.ts                  Client de fetch tipado (chama /api/* same-origin)
+      utils.ts                 Utilitários compartilhados
+    queries/                  Hooks do TanStack Query, um arquivo por feature
+  mobile/                    Expo + React Native + expo-router (client fino, sem server/db)
+    lib/
+      api.ts                  Client de fetch apontando pra packages/api (EXPO_PUBLIC_API_URL)
+    queries/                  Hooks de dados (useX), um arquivo por feature
+```
+
+## Variáveis de ambiente
+
+Segredos e credenciais ficam no `.env` da raiz do projeto (gitignored). Copie o modelo:
+
+```
+copy .env.template .env
+```
+*(no PowerShell: `Copy-Item .env.template .env`; no Mac/Linux: `cp .env.template .env`)*
+
+- `PORT` — porta pública do app web Next.js (padrão `4200`)
+- `API_PORT` — porta interna da API Express (padrão `4201`)
+- `API_URL` — usada pelo Next.js pra fazer proxy de `/api/*` até a API (derivada de `API_PORT` por padrão)
+- `DATABASE_URL` — connection string **pooled** do Postgres do Neon (queries em runtime)
+- `DIRECT_URL` — connection string **unpooled** do Neon (migrations do Prisma)
+- `EXPO_PUBLIC_API_URL` — URL base da API pro app mobile
+
+Na API (Express), use `process.env.SUA_VAR`. No app web (Next.js), só variáveis com prefixo
+`NEXT_PUBLIC_` ficam expostas no navegador.
+
+> A landing page em si (`packages/web`) não usa nada disso — nenhuma seção consulta a API ou
+> o banco. Essas variáveis só importam quando funcionalidades reais forem implementadas.
+
+## Banco de dados
+
+```
+cd packages/api
+pnpm run db:push        # Sincroniza o schema com o banco (dev)
+pnpm run db:generate    # Gera o Prisma Client
+pnpm run db:migrate     # Roda migrations (produção)
+```
+
+Só é necessário depois que houver `model`s definidos em `packages/api/prisma/schema.prisma` —
+hoje ele está vazio (só a configuração de conexão).
+
+## Sobre
+
+Landing page do **Cronos Auto**, projeto acadêmico da ETEC Bento Quirino (Centro Paula Souza).
+Veja [packages/web/README.md](packages/web/README.md) para detalhes do produto e do conteúdo
+da página.

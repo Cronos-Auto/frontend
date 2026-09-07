@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "oxc",
+    "react",
+    "jsx-a11y",
+    "import"
+  ],
+  "categories": {
+    "correctness": "error"
+  },
+  "jsPlugins": [
+    "./__lint-rules/index.mjs"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "template/asset-imports": "error",
+    "template/protected-files": "error"
+  },
+  "overrides": [
+    {
+      "files": [
+        "packages/api/src/routes/**/*.ts",
+        "packages/api/src/index.ts",
+        "packages/web/app/**/*.tsx",
+        "packages/web/components/**/*.tsx",
+        "packages/mobile/app/**/*.tsx"
+      ],
+      "rules": {
+        "max-lines": [
+          "error",
+          {
+            "max": 2000
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "packages/web/components/ui/**"
+      ],
+      "rules": {
+        "max-lines": "off"
+      }
+    }
+  ],
+  "ignorePatterns": [
+    "dist/**",
+    ".expo/**",
+    ".next/**"
+  ],
+  "env": {
+    "builtin": true,
+    "browser": true,
+    "node": true
+  }
+}
